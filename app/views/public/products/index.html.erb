@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th><h2>商品一覧</h2></th>
+    <th><p>(全x件)</p></th>
+    <th><p>ジャンル検索(仮)</p></th>
+  </tr>
+</table>
+<table>
+  <th>
+    <% @products.each do |products| %>
+    <%= attachment_image_tag products, :image %>
+    <h5><%= products.name %></h5>
+    <h5>¥<%= products.price %></h5>
+    <%# end %>
+  </th>
+</table>
