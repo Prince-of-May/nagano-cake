@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'public/homes#top'
   get '/admin' => 'admin/homes#top'
+  get '/about' => 'publichomes#about'
 
   #adminの設定
  devise_for :admin, controllers: {
