@@ -4,6 +4,7 @@ class Public::CartItemsController < ApplicationController
   end 
   
   def create
+    @cart_item = Cart_Items.new
   end 
   
   def update
