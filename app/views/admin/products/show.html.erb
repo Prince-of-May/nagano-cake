@@ -1,0 +1,18 @@
+<h2>商品詳細</h2>
+
+<% attachment_image_tag @product, image, size:"300×300", fallback: "no_image.jpg" %>
+
+<h4>商品名<%= @product.name %></h4>
+
+<h4>商品説明<%= @product.description %></h4>
+
+<h4>ジャンル<%= @product.genre_name %></h4>
+
+<h4>税抜価格<%= @product.price %></h4>
+
+<h4>販売ステータス<%= @product.is_active %></h4>
+
+<%= button_to '編集する',edit_admin_product_path(@product.id), method: :get ,class: "btn btn-primary " %>
+
+
+
