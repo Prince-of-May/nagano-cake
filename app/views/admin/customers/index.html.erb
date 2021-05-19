@@ -1,15 +1,24 @@
 <h2>会員一覧</h2>
-<tr>
+
+<thead>
+ <tr>
   <th>会員ID</th>
   <th>氏名</th>
   <th>メールアドレス</th>
-  
-</tr>
+  <th>ステータス</th>
+ </tr>
+</thead>
 
-<% @customers.each do |customer| %>
+<tbody>
+ <tr>
+   <% @customers.each do |customer| %>
+    <th><% customer.id %></th>
+    <th><% link_to customer.family.name, admin_customer_path(customer.id) %></th>
+    <th><% link_to customer.first.name, admin_customer_path(customer.id) %></th>
+    <th><% customer.email %></th>
+    <th><% customer.is_deleted %></th>
+   <% end %>
+ </tr>
+ <%= paginate @customers %>
+</tbody>
 
-<% customer.name %>
-
-
-
-<% end %>
