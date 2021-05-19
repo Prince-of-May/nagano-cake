@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'public/homes#top'
   get '/admin' => 'admin/homes#top'
-  get '/about' => 'publichomes#about'
+  get '/about' => 'public/homes#about'
 
   #adminの設定
  devise_for :admin, controllers: {
@@ -33,7 +33,8 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create, :index, :show]
     get '/orders/complete' => 'public/orders#complete'
     post '/orders/confirm' => 'public/orders#confirm'
-    resources :customers, only: [:show, :edit, :update]
+    resources :customers, only: [:edit, :update]
+    get '/customers/my_page' => 'public/customers#show'
     get '/customers/unsubscribe' => 'public/customers#unsubscribe'
     patch '/customers/withdraw' => 'public/customers#withdraw'
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
