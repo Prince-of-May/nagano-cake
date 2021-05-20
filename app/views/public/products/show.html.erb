@@ -1,11 +1,11 @@
 <%= attachment_image_tag @product, :image %>
-
   <h3><%= @product.name %></h3>
   <h5><%= @product.escription %></h5>
   <h3><%= @product.price %>(税込)</h3>
-  
+
   <p>商品個数</p>
-  
-  <%= form_with model:@cart_item, url:'public_cart_items_path', local:true do |f| %>
+
+  <%= form_with model:@product, url:'public_cart_items_path', local:true do |f| %>
+  <%#= f.select :保存先のカラム名, ["選択肢１", "実際にDBに保存させる内容"], include_blank: "選択して下さい" %>
   <%= f.submit 'カートに入れる', class:"btn btn-success" %>
   <% end %>

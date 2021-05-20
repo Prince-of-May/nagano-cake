@@ -4,7 +4,7 @@ class Public::CartItemsController < ApplicationController
   end 
   
   def create
-    @cart_item = Cart_Items.new
+    @item = Cart_Items.new(item_params)
   end 
   
   def update
@@ -16,4 +16,8 @@ class Public::CartItemsController < ApplicationController
   def destroy_all
   end
   
+  private
+  def item_params
+    params.require(:caart_item).permit(:name, :description, :image, :price)  end
+    
 end

@@ -7,10 +7,12 @@
 </table>
 <table>
   <th>
-    <% @products.each do |products| %>
-    <%= attachment_image_tag products, :image %>
-    <h5><%= products.name %></h5>
-    <h5>¥<%= products.price %></h5>
-    <%# end %>
+    <% @products.each do |product| %>
+    <%= attachment_image_tag product, :image %>
+    <h5><%= product.name %></h5>
+    <h5>¥<%= product.price %></h5>
+    <% end %>
   </th>
 </table>
+
+
