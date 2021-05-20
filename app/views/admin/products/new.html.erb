@@ -12,7 +12,7 @@
   <%= f.text_area :description, autofocus: true, autocomplete: "description" %></h4>
 
 <h4><%= f.label :ジャンル %>
-  <%= f.collection_select :genre_id, Genre.all, :id, :name %></h4>
+  <%= f.select :genre_id, [1,2], include_blank: "選択して下さい" %></h4>
 
 <h4><%= f.label :税抜価格 %>
   <%= f.text_field :price, autofocus: true, autocomplete: "price" %></h4>
