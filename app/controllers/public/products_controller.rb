@@ -8,8 +8,5 @@ class Public::ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end 
   
-  private
-  #def params
-    #params.require(:product).permit(:name, :description, :image, :price)
-  #end
+  
 end
