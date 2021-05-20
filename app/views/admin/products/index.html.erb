@@ -1,5 +1,9 @@
 <h2>商品一覧</h2>
 
+<%= link_to new_admin_product_path do %>
+ <button type="button" class="btn btn-success btn-success btn-circle btn-lg">＋</button>
+<% end %>
+
 <tr>
   <th>商品ID</th>
   <th>商品名</th>
@@ -9,13 +13,14 @@
 </tr>
 
   <% @products. each do |product| %>
-
+<tbody>
 <tr>
   <td><%= product.id %></td>
-  <td><%= product_name %></td>
-  <td><%= product_price %></td>
-  <td><%= genre_name %></td>
-  <td><%= %></td>
-
+  <td><%= product.name %></td>
+  <td><%= product.price %></td>
+  <td><%= product.genre.name %></td>
+  <td><%= product.is_active %></td>
   <% end %>
 </tr>
+<%= paginate @products %>
+</tbody>
