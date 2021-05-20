@@ -34,7 +34,7 @@ class Admin::ProductsController < ApplicationController
       render "new"
     end
   end
-  
+
   private
   def product_params
     params.require(:product).permit(:genre_id, :name, :description, :image_id, :price, :is_active)
