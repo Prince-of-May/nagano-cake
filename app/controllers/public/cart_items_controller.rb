@@ -1,10 +1,11 @@
 class Public::CartItemsController < ApplicationController
   
   def index
+    @cart_items = Cart_Items.all
   end 
   
   def create
-    @cart_item = Cart_Items.new(cart_item_params)
+    @cart_item = Cart_Item.new(cart_item_params)
     @caart_item.product_id = Product.find(params[:id])
     @cart_item.save
     redirect_to  public_products_path
@@ -14,9 +15,11 @@ class Public::CartItemsController < ApplicationController
   end 
   
   def destroy
+    @caart_item = Cart_Item.find(params[:id])
   end 
   
   def destroy_all
+     Cart_Item.destroy_all
   end
   
   private
