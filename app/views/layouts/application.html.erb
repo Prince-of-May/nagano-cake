@@ -10,6 +10,9 @@
 
   <body>
     <header>
+      <%= link_to root_path do %>
+      <%= image_tag 'img/Nagano-logo', :size =>'100x80' %>
+      <% end %>
       <!---->
       <% if customer_signed_in? %>
         <%= link_to 'マイページ', public_customers_my_page_path %>

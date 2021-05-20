@@ -1,0 +1,28 @@
+<%= link_to "カートを空にする", public_cart_items_destroy_all_path, method: :delete %>
+<table>
+   <tr>
+     <th><h4>商品名</h4></th>
+     <th><h4>単価（税込）</h4></th>
+     <th><h4>数量</h4></th>
+     <th><h4>小計</h4></th>
+     <th></th>
+   </tr>
+  <% @curt_items.each do |curt_item| %>
+   <tr>
+     <th><%= curt_item.name %></th>
+     <th><%= curt_item.price %></th>
+     <th><%= curt_item.amount %></th>
+     <th><%= curt_item.price %></th>
+     <th><%= link_to "削除する", public_cart_item_path(@curt_item), method: :delete %></th>
+   </tr>
+</table>
+<table>
+  <tr>
+    <th><h4>合計金額</h4></th>
+    <th><h5></h5></th>
+  </tr>
+</table>
+
+<%=link_to "買い物を続ける", public_products_path %>
+
+
