@@ -4,7 +4,10 @@ class Public::CartItemsController < ApplicationController
   end 
   
   def create
-    @item = Cart_Items.new(item_params)
+    @cart_item = Cart_Items.new(cart_item_params)
+    @caart_item.product_id = Product.find(params[:id])
+    @cart_item.save
+    redirect_to  public_products_path
   end 
   
   def update
@@ -17,7 +20,10 @@ class Public::CartItemsController < ApplicationController
   end
   
   private
-  def item_params
-    params.require(:caart_item).permit(:name, :description, :image, :price)  end
+  def cart_item_params
+     params.require(:caart_item).permit(:amount) 
+    # ストロングパラメーター７行目の（）
+    # requireに入るのはモデル名、permitに入るのはsaveさせるカラム名
+  end
     
 end
