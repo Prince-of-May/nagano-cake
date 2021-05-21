@@ -1,6 +1,7 @@
 class Admin::CustomersController < ApplicationController
 
   def index
+    # 論理条件とkaminari,未作成
     @customers = Customer.all
   end
 

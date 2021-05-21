@@ -1,14 +1,14 @@
-<h2><%= @customer.family_name %><%= @customer.first.name %>さんの会員詳細</h2>
+<h2><%= @customer.family_name %><%= @customer.first_name %>さんの会員詳細</h2>
 
 
 <table>
   <tbody>
     <tr>
       <th>会員ID</th><th><%= @customer.id %></th>
-      <th>氏名</th><th><%= @customer.family_name %>&nbsp;<%= @customer.first.name %></th>
-      <th>フリガナ</th><th><%= @customer.family_name_rubi %>&nbsp;<%= @customer.first.name %></th>
+      <th>氏名</th><th><%= @customer.family_name %>&nbsp;<%= @customer.first_name %></th>
+      <th>フリガナ</th><th><%= @customer.family_name_rubi %>&nbsp;<%= @customer.first_name %></th>
       <th>郵便番号</th><th><%= @customer.postal_code %></th>
-      <th>住所</th><th><%= @customer.adress %></th>
+      <th>住所</th><th><%= @customer.address %></th>
       <th>電話番号</th><th><%= @customer.phone_number %></th>
       <th>メールアドレス</th><th><%= @customer.email %></th>
       <!-- ステータス null default 未作成 -->

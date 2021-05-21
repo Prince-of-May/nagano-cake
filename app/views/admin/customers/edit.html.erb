@@ -1,18 +1,20 @@
-<h2><% @customer.family_name %><% @customer.first.name %>さんの会員情報編集</h2>
-<%= form_with model:@customer,local:true do |f| %>
+<h2><% @customer.family_name %><% @customer.first_name %>さんの会員情報編集</h2>
+<%= form_with model:@customer, url:admin_genre_path, local:true do |f| %>
   <table>
     <tbody>
       <tr>
         <th><%= f.label :会員ID %></th><th><% @customer.id %></th>
         <th><%= f.label :氏名 %></th><th><%= f.text_field :family_name %>&nbsp;<% f.text_field :first_name %></th>
-        <th><%= f.label :フリガナ %></th><th><%= f.text_field :family_name_rubi %>&nbsp;<% f.text_field :first.name %></th>
+        <th><%= f.label :フリガナ %></th><th><%= f.text_field :family_name_rubi %>&nbsp;<% f.text_field :first_name %></th>
         <th><%= f.label :郵便番号 %></th><th><%= f.text_field :postal_code %></th>
-        <th><%= f.label :住所 %></th><th><%= f.text_field :adress %></th>
+        <th><%= f.label :住所 %></th><th><%= f.text_field :address %></th>
         <th><%= f.label :電話番号 %></th><th><%= f.text_field :phone_number %></th>
         <th><%= f.label :メールアドレス %></th><th><%= f.text_field :email %></th>
         <!--radio_button 未作成-->
         <th><%= f.label :会員ステータス %></th><th><% @customer.is_deleted %></th>
+        <th><%= f.submit '変更を保存' %></th>
       </tr>
     </tbody>
   </table>
 <% end %>
+
