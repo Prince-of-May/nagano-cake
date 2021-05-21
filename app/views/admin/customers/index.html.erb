@@ -13,8 +13,8 @@
  <tr>
    <% @customers.each do |customer| %>
     <th><%= customer.id %></th>
-    <th><%= link_to customer.family.name, admin_customer_path(customer.id) %></th>
-    <th><%= link_to customer.first.name, admin_customer_path(customer.id) %></th>
+    <th><%= link_to customer.family_name, admin_customer_path(customer.id) %></th>
+    <th><%= link_to customer.first_name, admin_customer_path(customer.id) %></th>
     <th><%= customer.email %></th>
     <th><%= customer.is_deleted %></th>
    <% end %>
