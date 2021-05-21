@@ -5,7 +5,8 @@
 <h4>会員の方はこちらからログイン</h4>
   </div>
   <div class="row">
-    <table>
+    <div class='mx-auto'>
+     <table>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <tr>
         <div class="field">
@@ -26,6 +27,7 @@
       </tr>
       <% end %>
     </table>
+   </div>  
   </div>
 
 <h5>会員登録がお済みでない方<br>
