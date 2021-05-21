@@ -10,22 +10,22 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #800000;">
       <div class="container">
 
       <%= link_to root_path do %>
-      <%= image_tag 'img/Nagano-logo', :size =>'120x100' %>
+      <%= image_tag 'img/Nagano-logo-white', :size =>'200x120' %>
       <% end %>
       <!---->
       <nav>
         <ul class="nav justify-content-end">
       <% if customer_signed_in? %>
         <li class="nav-item"><%= link_to 'マイページ', public_customers_my_page_path %></li>
-        <li class="nav-item"><%= link_to '商品一覧', public_products_path %></li>
+        <li class="nav-item"><%= link_to '商品一覧', public_products_path, class:"fas fa-list nav-link size" %></li>
         <li class="nav-item"><%= link_to 'カート', public_cart_items_path %></li>
         <li class="nav-item"><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete %></li>
       <% elsif admin_signed_in? %>
-        <li class="nav-item"><%= link_to '商品一覧', admin_products_path %></li>
+        <li class="nav-item"><%= link_to '商品一覧', admin_products_path, class:"fas fa-list nav-link size" %></li>
         <li class="nav-item"><%= link_to '会員一覧', admin_customers_path %></li>
         <li class="nav-item"><%= link_to '注文履歴一覧', admin_path %></li>
         <li class="nav-item"><%= link_to 'ジャンル一覧', admin_genres_path %></li>
@@ -38,15 +38,18 @@
       <% end %>
       </ul>
       </nav>
-      
+
 
       </div>
       </nav>
     </header>
 
     <%= yield %>
-    <footer>
-      <p>CopyRight Infrarop.inc</p>
+    
+    <footer class="navbar navbar-expand-lg navbar-light" style="background-color: #800000;">
+      <div class="container">
+         <p class= "footer_text">CopyRight Infrarop.inc</p>
+      </div>
     </footer>
   </body>
 </html>
