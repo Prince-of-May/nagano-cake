@@ -25,7 +25,7 @@ class Public::CartItemsController < ApplicationController
   private
   def cart_item_params
      params.require(:caart_item).permit(:amount) 
-    # ストロングパラメーター７行目の（）
+    # ストロングパラメーター（）
     # requireに入るのはモデル名、permitに入るのはsaveさせるカラム名
   end
     

@@ -7,13 +7,13 @@
      <th><h4>小計</h4></th>
      <th></th>
    </tr>
-  <% @curt_items.each do |curt_item| %>
+  <% @cart_items.each do |curt_item| %>
    <tr>
-     <th><%= curt_item.name %></th>
-     <th><%= curt_item.price %></th>
-     <th><%= curt_item.amount %></th>
-     <th><%= curt_item.price %></th>
-     <th><%= link_to "削除する", public_cart_item_path(@curt_item), method: :delete %></th>
+     <th><%= cart_item.name %></th>
+     <th><%= cart_item.price %></th>
+     <th><%= cart_item.amount %></th>
+     <th><%= cart_item.price %></th>
+     <th><%= link_to "削除する", public_cart_item_path(@cart_item), method: :delete %></th>
    </tr>
 </table>
 <table>
