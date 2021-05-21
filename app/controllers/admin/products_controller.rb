@@ -20,6 +20,7 @@ class Admin::ProductsController < ApplicationController
     #else
       #render "new"
     #end
+    # 応急処置
 
   end
 
