@@ -16,10 +16,12 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.save
-  	   redirect_to new_admin_product_path
-   #else
-  	   #render "new"
-   #end
+      redirect_to admin_products_path
+    #else
+      #render "new"
+    #end
+    # 応急処置
+
   end
 
   def edit
