@@ -1,25 +1,41 @@
+<!--<div class = "container">-->
 <h2>商品新規登録</h2>
+<div class = "row">
+    <div class="my-5">
 
-<%= form_with model: @product, url: admin_products_path, method: :post, local:true do |f| %>
+     <%= form_with model: @product, url: admin_products_path, method: :post, local:true do |f| %>
+     <table class="table table-borderless">
+       <tr class="d-flex">
+          <th class="col-6"><%= f.label :商品画像 %></th>
+          <td class="col-6"><%= f.attachment_field :image, placeholder: "商品画像" %></td>
+       <tr class="d-flex">
+          <th class="col-6"><%= f.label :商品名 %></th>
+          <td class="col-6"><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
+       <tr class="d-flex">
+          <th class="col-6"><%= f.label :商品説明 %></th>
+          <td class="col-6"><%= f.text_area :description, autofocus: true, autocomplete: "description" %></td>
+       <tr class="d-flex">
+          <th class="col-6"><%= f.label :ジャンル %></th>
+          <td class="col-6"><%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %></td>
+          <%#= f.select :genre_id, [1,2], include_blank: "選択して下さい" %></h4>
+       <tr class="d-flex">
+          <th class="col-6"><%= f.label :税抜価格 %></th>
+          <td class="col-6"><%= f.text_field :price, autofocus: true, autocomplete: "price" %>円</td>
+       <tr class="d-flex">
+          <th class="col-6"><%= f.label :"販売ステータス" %></th>
+          <td class="col-6">
+            <%= f.label :is_sold, "販売中" %>
+            <%= f.radio_button :is_sold, true %>
+            <%= f.label :is_sold, "販売停止中" %>
+            <%= f.radio_button :is_sold, false %>
+          </td>
 
-<h4><%= f.label :商品画像 %>
-<%= f.attachment_field :image, placeholder: "商品画像" %></h4>
+          <%#= f.label :販売ステータス %>
+          <%#= f.select :is_active, [["販売中","false"], ["販売不可","true"]], include_blank: "--選択してください--" %>
+     </table>
+          <%= f.submit "商品登録" ,class: "btn btn-primary" %>
 
-<h4><%= f.label :商品名 %>
-  <%= f.text_field :name, autofocus: true, autocomplete: "name" %></h4>
-
-<h4><%= f.label :商品説明 %>
-  <%= f.text_area :description, autofocus: true, autocomplete: "description" %></h4>
-
-<h4><%= f.label :ジャンル %>
-  <%= f.select :genre_id, [1,2], include_blank: "選択して下さい" %></h4>
-
-<h4><%= f.label :税抜価格 %>
-  <%= f.text_field :price, autofocus: true, autocomplete: "price" %>円</h4>
-
-<h4><%= f.label :販売ステータス %>
-  <%= f.select :is_active, [["販売中","false"], ["販売不可","true"]], include_blank: "--選択してください--" %></h4>
-
-<%= f.submit "商品登録" ,class: "btn btn-primary" %>
-
-<% end %>
+          <% end %>
+    </div>
+</div>
+</div>
