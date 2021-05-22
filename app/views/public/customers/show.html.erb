@@ -1,6 +1,6 @@
 <h4>マイページ</h4>
 <h4>登録情報</h4>
-<%= link_to "編集する", edit_public_customer_path %>
+<%= link_to "編集する", edit_public_customer_path(@customer) %><!--edit_public_customer_pathだけだと誰の編集画面なのかわからない。そのためインスタンスに格納していたcurrent_customerを宣言させる-->
 <%= current_customer.family_name %>
 <%= current_customer.first_name %>
 <%= current_customer.family_name_rubi %>
