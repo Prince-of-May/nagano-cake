@@ -1,16 +1,22 @@
-<h2><% @customer.family_name %><% @customer.first_name %>さんの会員情報編集</h2>
-<%= form_with model:@customer, url:admin_genre_path, local:true do |f| %>
+<h2><%= @customer.family_name %><%= @customer.first_name %>さんの会員情報編集</h2>
+<%= form_with model:@customer, url:admin_customer_path, local:true do |f| %>
   <table>
     <tbody>
-      <tr><th><%= f.label :会員ID %></th><td><% @customer.id %></td></tr>
-      <tr><th><%= f.label :氏名 %></th><td><%= f.text_field :family_name %>&nbsp;<% f.text_field :first_name %></td></tr>
-      <tr><th><%= f.label :フリガナ %></th><td><%= f.text_field :family_name_rubi %>&nbsp;<% f.text_field :first_name %></td></tr>
+      <tr><th><%= f.label :会員ID %></th><td><%= @customer.id %></td></tr>
+      <tr><th><%= f.label :氏名 %></th><td><%= f.text_field :family_name %>&nbsp;<%= f.text_field :first_name %></td></tr>
+      <tr><th><%= f.label :フリガナ %></th><td><%= f.text_field :family_name_rubi %>&nbsp;<%= f.text_field :first_name_rubi %></td></tr>
       <tr><th><%= f.label :郵便番号 %></th><td><%= f.text_field :postal_code %></td></tr>
       <tr><th><%= f.label :住所 %></th><td><%= f.text_field :address %></td></tr>
       <tr><th><%= f.label :電話番号 %></th><td><%= f.text_field :phone_number %></td></tr>
       <tr><th><%= f.label :メールアドレス %></th><td><%= f.text_field :email %></td></tr>
-      <!--radio_button 未作成-->
-      <tr><th><%= f.label :会員ステータス %></th><td><% @customer.is_deleted %></td></tr>
+      <tr>
+        <th><%= f.label :会員ステータス %></th>
+        <td>
+        <%= f.radio_button :is_deleted, :false %><%= f.label :有効 %>
+        <%= f.radio_button :is_deleted, :true %><%= f.label :退会 %>
+
+        </td>
+      </tr>
       <th><%= f.submit '変更を保存' %></th>
     </tbody>
   </table>
