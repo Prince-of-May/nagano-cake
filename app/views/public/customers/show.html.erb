@@ -1,0 +1,15 @@
+<h4>マイページ</h4>
+<h4>登録情報</h4>
+<%= link_to "編集する", edit_public_customer_path %>
+<%= current_customer.family_name %>
+<%= current_customer.first_name %>
+<%= current_customer.family_name_rubi %>
+<%= current_customer.first_name_rubi %>
+<%= current_customer.postal_code %>
+<%= current_customer.address %>
+<%= current_customer.phone_number %>
+<%= current_customer.email %>
+<h4>配送先</h4>
+<%= link_to "一覧を見る", public_addresses_path %>
+<h4>注文履歴</h4>
+<%= link_to "一覧を見る", public_orders_path %>
