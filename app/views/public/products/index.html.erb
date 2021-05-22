@@ -9,7 +9,7 @@
   <th>
     <% @products.each do |product| %>
     <%= attachment_image_tag product, :image %>
-    <h5><%= product.name %></h5>
+    <h5><%= link_to product.name, public_product_path(product.id) %></h5>
     <h5>¥<%= product.price %></h5>
     <% end %>
   </th>
