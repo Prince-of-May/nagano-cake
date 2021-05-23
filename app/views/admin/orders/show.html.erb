@@ -1,2 +1,67 @@
 <h2>注文履歴詳細</h2>
 
+<table>
+  
+  <tr><th>購入者</th><td><%= @order.name %></td></tr>
+  <tr><th>注文日</th><td><%= @order.created_at.strftime('%Y/%m/%d') %></td></tr>
+  <tr><th>発送先</th><td><%= @order.address %></td></tr>
+  <tr><th>支払方法</th><td><%= @order.payment_method %></td></tr>
+  
+  <%= form_with model: @order, url: admin_order_path, local:true do |f| %>
+  <tr>
+    <th>注文ステータス</th>
+    <td><%= f.select :status, [["入金待ち"],["入金確認"],["製作中"],["発送準備中"],["発送済み"]], prompt: "入金待ち" %></td>
+    <td><%= f.submit "更新" ,class: "btn btn-primary" %></td>
+  </tr>
+  <% end %>
+  
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th><th>単価（税込）</th><th>数量</th><th>小計</th><th>製作ステータス</th>
+    </tr>
+  </thead>
+  <% @ordering_products.each do |ordering_product| %>
+  <tbody>
+    <tr>
+      <td><%= ordering_product.product.name %></td>
+      <td><%= ordering_product.price %></td>
+      <td><%= ordering_product.amount %></td>
+      <td><%= ordering_product.price * ordering_product %></td>
+      <% @sum += (ordering_product.price * ordering_product) %> 
+      <td>
+        <%= form_with model: ordering_product, url: admin_order_path, local:true do |f| %>
+        <%= f.select :making_status, [["着手不可"],['製作待ち'], ['製作中'],['製作完了']], prompt: "着手不可"  %>
+        <%= f.submit "更新" ,class: "btn btn-primary" %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+
+<table>
+  
+  <tr>
+    <th>商品合計</th>
+    <td><%= @sum %>円</td>
+  </tr>
+  <tr>
+    <th>送料</th>
+    <td><%= @order.shipping_cost %>円</td>
+  </tr>
+  <tr>
+    <th>請求金額合計</th>
+  　<td><%= @sum + @order.shipping_cost %></td>
+  </tr>
+  
+</table>
+
+
+
+
+
+
+
