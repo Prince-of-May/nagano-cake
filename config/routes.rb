@@ -32,14 +32,14 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show]
     resources :genres, only: [:index]
     resources :cart_items, only: [:index, :create, :update, :destroy]
-    delete '/cart_items/destroy_all' => 'public/cart_items#destroy_all'
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :orders, only: [:new, :create, :index, :show]
-    get '/orders/complete' => 'public/orders#complete'
-    post '/orders/confirm' => 'public/orders#confirm'
+    get '/orders/complete' => 'orders#complete'
+    post '/orders/confirm' => 'orders#confirm'
     resources :customers, only: [:edit, :update]
-    get '/customers/my_page' => 'public/customers#show'
-    get '/customers/unsubscribe' => 'public/customers#unsubscribe'
-    patch '/customers/withdraw' => 'public/customers#withdraw'
+    get '/customers/my_page' => 'customers#show'
+    get '/customers/unsubscribe' => 'customers#unsubscribe'
+    patch '/customers/withdraw' => 'customers#withdraw'
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
 
   end

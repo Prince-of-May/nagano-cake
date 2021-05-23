@@ -5,14 +5,21 @@
   <tbody>
     <tr><th>会員ID</th><th><%= @customer.id %></th></tr>
     <tr><th>氏名</th><th><%= @customer.family_name %>&nbsp;<%= @customer.first_name %></th></tr>
-    <tr><th>フリガナ</th><th><%= @customer.family_name_rubi %>&nbsp;<%= @customer.first_name %></th></tr>
+    <tr><th>フリガナ</th><th><%= @customer.family_name_rubi %>&nbsp;<%= @customer.first_name_rubi %></th></tr>
     <tr><th>郵便番号</th><th><%= @customer.postal_code %></th></tr>
     <tr><th>住所</th><th><%= @customer.address %></th></tr>
     <tr><th>電話番号</th><th><%= @customer.phone_number %></th></tr>
     <tr><th>メールアドレス</th><th><%= @customer.email %></th></tr>
     <!-- ステータス null default 未作成 -->
-    <tr><th>会員ステータス</th><th><%= @customer.is_deleted %></th></tr>
-    
+    <tr>
+      <th>会員ステータス</th>
+      <td><% if @customer.is_deleted == false %>
+      有効
+      <% else %>
+      退会
+      <% end %></td>
+    </tr>
+
   </tbody>
 </table>
 
