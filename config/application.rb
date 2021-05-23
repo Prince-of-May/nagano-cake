@@ -17,7 +17,7 @@ module NaganoCake
   Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
   # 応急処置
 
-  config.time_zone = 'Asia/Tokyo'#タイムゾーンを日本時間に設定
+  #タイムゾーンを日本時間に設定
 
 end
 
