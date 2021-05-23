@@ -27,7 +27,9 @@
       </tr>
       <tr class="d-flex">
       　<th class="col-6"><%= f.label :販売ステータス %></th>
-        <td class="col-6"><%= f.select :is_active, [["販売中","false"], ["販売不可","true"]], include_blank: "--選択してください--" %></h4>
+        <td class="col-6"><%= f.radio_button :is_active, :販売中 %>販売中
+                          <%= f.radio_button :is_active, :販売停止中 %>販売停止中</h4>
+          <%#= f.select :is_active, [["販売中","false"], ["販売不可","true"]], include_blank: "--選択してください--" %>
       </tr>
       </table>
 

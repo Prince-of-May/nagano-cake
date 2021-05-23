@@ -1,0 +1,29 @@
+<h4>注文履歴詳細</h4>
+
+<h4>注文情報</h4>
+<h4>注文日</h4>
+<%= order.created_at.strftime('%Y/%m/%d') %>
+<h4>配送先</h4>
+<%= order.address %>
+<h4>支払い方法</h4>
+<%= order.payment_method %>
+<h4>ステータス</h4>
+<%= order.status %>
+
+<h4>請求情報</h4>
+<h4>商品合計</h4>
+<%= %>
+<h4>配送料</h4>
+<%= @delivery_charge %>
+<h4>ご請求額</h4>
+<%= %>
+
+<h4>注文内容</h4>
+<h4>商品</h4>
+<%= ordering_product.product.name %>
+<h4>単価（税込）</h4>
+<%= %>
+<h4>個数</h4>
+<%= ordering_product.amount %>
+<h4>小計</h4>
+<%= %>

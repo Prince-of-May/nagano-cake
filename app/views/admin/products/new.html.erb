@@ -24,10 +24,12 @@
        <tr class="d-flex">
           <th class="col-6"><%= f.label :"販売ステータス" %></th>
           <td class="col-6">
-            <%= f.label :is_sold, "販売中" %>
-            <%= f.radio_button :is_sold, true %>
-            <%= f.label :is_sold, "販売停止中" %>
-            <%= f.radio_button :is_sold, false %>
+            <%#= f.label :is_sold, "販売中" %>
+            <%#= f.radio_button :is_sold, true %>
+            <%#= f.label :is_sold, "販売停止中" %>
+            <%#= f.radio_button :is_sold, false %>
+            <%= f.radio_button :is_active, :販売中 %>販売中
+            <%= f.radio_button :is_active, :販売停止中 %>販売停止中
           </td>
 
           <%#= f.label :販売ステータス %>
