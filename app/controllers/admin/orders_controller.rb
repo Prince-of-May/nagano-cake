@@ -12,4 +12,10 @@ class Admin::OrdersController < ApplicationController
     redirect_to admin_order_path(@order.id)
   end
 
+
+  private
+  
+  def order_params
+    params.require(:order).permit(:status)
+  end
 end
