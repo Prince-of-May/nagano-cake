@@ -4,7 +4,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @ordering_products = @order.ordering_products.all
     @sum = 0
-    end
+  end
 
   def update
     @order = Order.find(params[:id])
@@ -12,4 +12,10 @@ class Admin::OrdersController < ApplicationController
     redirect_to admin_order_path(@order.id)
   end
 
+
+  private
+  
+  def order_params
+    params.require(:order).permit(:status)
+  end
 end
