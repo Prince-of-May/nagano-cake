@@ -5,7 +5,9 @@ class Public::OrdersController < ApplicationController
   end
   
   def confirm
-    
+    @cart_items = CartItem.where(customer_id: current_customer.id)
+    @order = Order.new(order_params)
+    redirect_to new_public_order_path
   end
   
   def complete
@@ -22,4 +24,10 @@ class Public::OrdersController < ApplicationController
   def show
     #@orders = Order.where(:)
   end 
+  
+  private
+  def order_params 
+    params.require(:order).permit(:customer_id, :total_payment, :payment_method, :address, :postal_code, :name)
+  end   
+    
 end
