@@ -4,7 +4,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @ordering_products = @order.ordering_products.all
     @sum = 0
-    end
+  end
 
   def update
     @order = Order.find(params[:id])
