@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :customer
   has_many :ordering_products, dependent: :destroy
+
   
   enum payment_method: {
     "クレジットカード": 0,
@@ -13,3 +14,4 @@ class Order < ApplicationRecord
     "新しいお届け先": 2,
   }
 end
+
