@@ -19,7 +19,6 @@ module NaganoCake
 
   #config.time_zone = 'Asia/Tokyo'#タイムゾーンを日本時間に設定
 
-
 end
 
 
