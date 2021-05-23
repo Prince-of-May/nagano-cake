@@ -1,35 +1,42 @@
 <%= link_to "カートを空にする", public_cart_items_destroy_all_path, method: :delete %>
-<table>
-   <tr>
-     <th><h4>商品名</h4></th>
-     <th><h4>単価(税込)</h4></th>
-     <th><h4>数量</h4></th>
-     <th><h4>小計</h4></th>
-     <th></th>
-   </tr>
-  <% @cart_items.each do |cart_item| %>
-   <tr>
-     <th><%= attachment_image_tag cart_item.product, :image, :fill, 50, 50 %>
-     <%= cart_item.product.name %>
-     </th>
-     <th><%= cart_item.product.price %></th>
-     <%= form_with model:@cart_item, url:public_cart_item_path(cart_item.id), method: :patch, local:true do |f| %>
-     <th><%= f.select :amount, [1,2,3,4,5,6,7,8,9,10], selected: cart_item.amount %>
-     <%= f.submit '変更', class:"btn btn-success" %>
-     </th>
-     <% end %>
-     <th><%= cart_item.product.price %></th>
-     <th><%= link_to "削除する", public_cart_item_path(cart_item), method: :delete %></th>
-   </tr>
-  <% end %>
-</table>
+  <table>
+    <tr>
+      <th><h4>商品名</h4></th>
+      <th><h4>単価(税込)</h4></th>
+      <th><h4>数量</h4></th>
+      <th><h4>小計</h4></th>
+      <th></th>
+  </tr>
+    <% @cart_items.each do |cart_item| %>
+      <tr>
+        <th>
+          <%= attachment_image_tag cart_item.product, :image, :fill, 50, 50 %>
+          <%= cart_item.product.name %>
+        </th>
+        <th>
+          <%= tax_price(cart_item.product.price) %>
+        </th>
+        <%= form_with model:cart_item, url:public_cart_item_path(cart_item.id), method: :patch, local:true do |f| %>
+        <th>
+          <%= f.select :amount, [1,2,3,4,5,6,7,8,9,10], selected: cart_item.amount %>
+          <%= f.submit '変更', class:"btn btn-success" %>
+        </th>
+        <% end %>
+        <th>
+          <%= sub_price(cart_item) %>
+        </th>
+        <th>
+          <%= link_to "削除する", public_cart_item_path(cart_item), method: :delete %>
+        </th>
+      </tr>
+    <% end %>
+  </table>
 <table>
   <tr>
     <th><h4>合計金額</h4></th>
-    <th><h5></h5></th>
+    <th><h5><%= total_price(@cart_items) %></h5></th>
   </tr>
 </table>
 
+
 <%=link_to "買い物を続ける", public_products_path %>
-
-
