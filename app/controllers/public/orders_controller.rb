@@ -1,9 +1,18 @@
 class Public::OrdersController < ApplicationController
   
   def new
-  end 
+    @order = Order.new
+  end
+  
+  def confirm
+    
+  end
+  
+  def complete
+  end
   
   def create
+    @order = Order.new(order_params)
   end 
   
   def index
@@ -11,6 +20,6 @@ class Public::OrdersController < ApplicationController
   end 
   
   def show
+    #@orders = Order.where(:)
   end 
-  
 end
