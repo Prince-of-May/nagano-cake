@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_05_18_051235) do
     t.string "postal_code"
     t.string "address"
     t.string "phone_number"
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -78,13 +78,13 @@ ActiveRecord::Schema.define(version: 2021_05_18_051235) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "shipping_cost", default: 800
+    t.integer "shipping_cost"
     t.integer "total_payment"
     t.integer "payment_method"
     t.string "address"
     t.string "postal_code"
     t.string "name"
-    t.integer "status", default: 0
+    t.integer "status"
     t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
