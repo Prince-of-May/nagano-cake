@@ -27,16 +27,17 @@ class Public::OrdersController < ApplicationController
     @delivery_charge = 800
   end
     #@orders = Order.where(:)
-  
-  
+
   private
-  def order_params 
-    params.require(:order).permit(:customer_id, :total_payment, :payment_method, :address, :postal_code, :name)
-  end   
-    
+    def order_params
+      params.require(:order).permit(:customer_id, :total_payment, :payment_method, :address, :postal_code, :name)
+    end
+
+    def order_params
+      params.require(:order).permit(:shipping_cost, :total_payment, :address, :postal_code, :name, :status, :customer_id )
+    end
+
 end
 
-private
-  def order_params
-    params.require(:order).permit(:shipping_cost, :total_payment, :address, :postal_code, :name, :status, :customer_id )
-  end
+
+
