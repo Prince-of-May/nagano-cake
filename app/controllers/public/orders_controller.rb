@@ -27,7 +27,7 @@ class Public::OrdersController < ApplicationController
     @delivery_charge = 800
   end
     #@orders = Order.where(:)
-  end 
+  
   
   private
   def order_params 
