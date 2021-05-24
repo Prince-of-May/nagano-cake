@@ -7,6 +7,8 @@ class Public::OrdersController < ApplicationController
   def confirm
     @cart_items = CartItem.where(customer_id: current_customer.id)
     @order = Order.new(order_params)
+    @order.payment_method = params[:order][:payment_method]
+    @delivery_charge = 800
     if params[:order][:address_kind] == "1"
       @order.address = current_customer.address
       @order.postal_code = current_customer.postal_code
