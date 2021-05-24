@@ -43,6 +43,7 @@ class Public::OrdersController < ApplicationController
     #@orders = Order.where(:)
 
 
+
   private
   def order_params
     params.require(:order).permit(:shipping_cost, :total_payment, :address, :postal_code, :name, :status, :customer_id )
