@@ -1,9 +1,28 @@
 <h4>注文情報確認画面</h4>
 
-<% @cart_items.each do |cart_item| %>
-<%= attachment_image_tag cart_item.product, :image, :fill, 50, 50 %>
-<%= cart_item.product.name %>
-<%= tax_price(cart_item.product.price) %>
-<%= cart_item.amount %>
-<%= sub_price(cart_item) %>
-<% end %>
+<table>
+    <tr>
+      <th><h4>商品名</h4></th>
+      <th><h4>単価(税込)</h4></th>
+      <th><h4>数量</h4></th>
+      <th><h4>小計</h4></th>
+      <th></th>
+  </tr>
+    <% @cart_items.each do |cart_item| %>
+      <tr>
+        <th>
+            <%= attachment_image_tag cart_item.product, :image, :fill, 50, 50 %>
+            <%= cart_item.product.name %>
+        </th>
+        <th>
+            <%= tax_price(cart_item.product.price) %>
+        </th>
+        <th>
+            <%= cart_item.amount %>
+        </th>
+        <th>
+            <%= sub_price(cart_item) %>
+        </th>
+      </tr>
+    <% end %>
+  </table>
