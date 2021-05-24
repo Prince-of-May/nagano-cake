@@ -1,0 +1,9 @@
+<h4>注文情報確認画面</h4>
+
+<% @cart_items.each do |cart_item| %>
+<%= attachment_image_tag cart_item.product, :image, :fill, 50, 50 %>
+<%= cart_item.product.name %>
+<%= tax_price(cart_item.product.price) %>
+<%= cart_item.amount %>
+<%= sub_price(cart_item) %>
+<% end %>

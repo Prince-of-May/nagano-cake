@@ -8,7 +8,7 @@ class Public::OrdersController < ApplicationController
 
     @cart_items = CartItem.where(customer_id: current_customer.id)
     @order = Order.new(order_params)
-    redirect_to new_public_order_path
+    redirect_to  public_orders_confirm_path
   end
 
   def complete
