@@ -8,11 +8,6 @@ class Order < ApplicationRecord
     "銀行振込": 1,
   }
   
-  enum address: {
-    "ご自身の住所": 0,
-    "登録済住所から選択": 1,
-    "新しいお届け先": 2,
-  }
   
   enum status: [ "入金待ち", "入金確認", "製作中", "発送準備中", "発送済み" ]
   
