@@ -1,5 +1,5 @@
 module Public::CartItemsHelper
-  
+
 
   def sub_price(sub)
     tax_price(sub.product.price) * sub.amount
