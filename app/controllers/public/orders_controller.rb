@@ -52,3 +52,4 @@ class Public::OrdersController < ApplicationController
   end
 
 end
+
