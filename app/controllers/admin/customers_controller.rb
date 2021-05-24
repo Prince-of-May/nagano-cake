@@ -1,8 +1,9 @@
 class Admin::CustomersController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     # 論理削除とkaminari,未作成
-    @customers = Customer.all
+    @customers = Customer.page(params[:page]).per(2)
   end
 
   def show
