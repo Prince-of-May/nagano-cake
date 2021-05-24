@@ -1,4 +1,4 @@
 module Public::CartItemsHelper
-  
+
 
 end
