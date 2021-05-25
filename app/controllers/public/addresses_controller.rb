@@ -1,5 +1,5 @@
 class Public::AddressesController < ApplicationController
-
+  before_action :authenticate_customer!
   def index
     @addresses = current_customer.addresses#ログインユーザーのaddressモデルを全て取得する（命名規則により、モデル名の前にメソッドがある場合addressの頭文字は小文字にする）
     #@addresses = Address.where(address_id: current_customer.id)

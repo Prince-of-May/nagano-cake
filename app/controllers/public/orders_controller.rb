@@ -1,5 +1,5 @@
 class Public::OrdersController < ApplicationController
-
+  before_action :authenticate_customer!
   def new
     @order = Order.new
   end
@@ -34,21 +34,20 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
-    current_customer.cart_items.each do |cart_item|#自分のcart_itemを取り出して一つ一つ保存する
-      OrderingProduct.create!(order_id: @order.id, product_id: cart_item.product_id, amount: cart_item.amount, price: @order.total_payment)#モデル名.アクション(モデル名のカラム: 入れたいデータ)
+    current_customer.cart_items.each do |cart_item|
+      OrderingProduct.create!(order_id: @order.id, product_id: cart_item.product_id, amount: cart_item.amount, price: @order.total_payment)
     end
     current_customer.cart_items.destroy_all
     redirect_to public_orders_complete_path
   end
 
   def index
-    @orders = current_customer.orders.all#ログインユーザーのordersモデルを全て取得する（命名規則により、モデル名の前にメソッドがある場合ordersの頭文字は小文字にする）
+    @orders = current_customer.orders#ログインユーザーのordersモデルを全て取得する（命名規則により、モデル名の前にメソッドがある場合ordersの頭文字は小文字にする）
   end
 
   def show
-    @order = current_customer.orders.find(params[:id])
+    @orders = current_customer.orders
     @delivery_charge = 800
-    @ordering_products = OrderingProduct.where(order_id: @order.id)#注文IDを取得　
   end
     #@orders = Order.where(:)
 
