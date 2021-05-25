@@ -2,8 +2,8 @@ class Public::ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    @search_params = genre_search_params
-    @genres = Genre.search(@search_params).includes(:genre_id)
+    #@search_params = genre_search_params
+    #@genres = Genre.search(@search_params).includes(:genre_id)
     
   end
 

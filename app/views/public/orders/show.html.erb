@@ -2,28 +2,31 @@
 
 <h4>注文情報</h4>
 <h4>注文日</h4>
-<%= order.created_at.strftime('%Y/%m/%d') %>
+<%= @order.created_at.strftime('%Y/%m/%d') %>
 <h4>配送先</h4>
-<%= order.address %>
+<%= @order.address %>
 <h4>支払い方法</h4>
-<%= order.payment_method %>
+<%= @order.payment_method %>
 <h4>ステータス</h4>
-<%= order.status %>
+<%= @order.status %>
 
 <h4>請求情報</h4>
 <h4>商品合計</h4>
-<%= %>
+<%= @order.total_payment %>
 <h4>配送料</h4>
 <%= @delivery_charge %>
 <h4>ご請求額</h4>
-<%= %>
+<%= @order.total_payment + @delivery_charge %>
 
 <h4>注文内容</h4>
-<h4>商品</h4>
-<%= ordering_product.product.name %>
-<h4>単価（税込）</h4>
-<%= %>
-<h4>個数</h4>
-<%= ordering_product.amount %>
-<h4>小計</h4>
-<%= %>
+<%= @ordering_products.each do |ordering_product| %>
+    <h4>商品</h4>
+    <%= ordering_product.product.name %>
+    <h4>単価（税込）</h4>
+    <%= ordering_product.product.price %>
+    <h4>個数</h4>
+    <%= ordering_product.amount %>
+    <h4>小計</h4>
+    <% @sum = (ordering_product.price * ordering_product.amount) %>
+    <%= @sum %>
+<% end %>
