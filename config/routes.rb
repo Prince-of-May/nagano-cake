@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     get 'searches/search'
   end
   root to: 'public/homes#top'
-  get '/admin' => 'admin/homes#top'
+  get '/admin' => 'admin/orders#index'
   get '/about' => 'public/homes#about'
 
   #adminの設定
