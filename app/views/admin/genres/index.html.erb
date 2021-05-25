@@ -10,6 +10,7 @@
 <% end %>
 <table>
     <thead>ジャンル</thead>
+    <tbody>
         <% @genres.each do |genre| %>
         
         <tr>
@@ -17,4 +18,8 @@
         </tr>
         
         <% end %>
+        <tr>
+            <%= paginate(@genres) %>
+        </tr>
+    </tbody>
 </table>
