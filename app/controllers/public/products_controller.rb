@@ -14,7 +14,7 @@ class Public::ProductsController < ApplicationController
 
 private
 
-  def genre_search_params
-    params.fetch(:search, {}).permit(:genre_id, :name, :image_id, )
-  end
+  #def #genre_search_params
+    #params.fetch(:search, {}).permit(:genre_id, :name, :image_id, :)
+  #end
 end
