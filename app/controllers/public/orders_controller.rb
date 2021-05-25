@@ -32,6 +32,11 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
+    p @order
+    @order.save
+    
+    redirect_to public_orders_complete_path
   end
 
   def index
@@ -48,8 +53,7 @@ class Public::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:shipping_cost, :total_payment, :address, :postal_code, :name, :status, :customer_id )
+    params.require(:order).permit(:shipping_cost, :total_payment, :address, :postal_code, :name, :status, :customer_id, :payment_method )
   end
 
 end
-

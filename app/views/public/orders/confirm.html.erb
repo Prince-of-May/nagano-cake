@@ -35,6 +35,7 @@
           <th><%= @delivery_charge %></th>
           <th><%= total_price(@cart_items) %></th>
           <th><%= @delivery_charge + total_price(@cart_items) %></th>
+          <% @sum = @delivery_charge + total_price(@cart_items) %>
         </tr>
     </table>
     <table>
@@ -49,4 +50,11 @@
         </tr>
     </table>
 
-delivery_charge
+<%= form_with model:@order, url:public_orders_path, method: :post, local:true do |f| %>
+<%= f.hidden_field :payment_method, :value =>@order.payment_method %>
+<%= f.hidden_field :address, :value =>@order.address %>
+<%= f.hidden_field :postal_code, :value =>@order.postal_code %>
+<%= f.hidden_field :name, :value =>@order.name %>
+<%= f.hidden_field :total_payment, :value =>@sum %>
+<%= f.submit '確定', class:"btn btn-success" %>
+<% end %>

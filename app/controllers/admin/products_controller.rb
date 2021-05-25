@@ -16,11 +16,13 @@ class Admin::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    p @product
+    #p @product
     if @product.save
-      redirect_to admin_product_path(@product)
+      #商品の新規登録成功後その商品の詳細ページへ遷移
+      redirect_to admin_product_path(@product), success: "登録に成功しました"
     else
-      redirect_to new_admin_product_path
+      #バリデーションに引っ掛かる場合は新規登録画面へ遷移
+      redirect_to new_admin_product_path, denger: "登録に失敗しました"
     end
 
   end
@@ -32,9 +34,11 @@ class Admin::ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      redirect_to admin_product_path(@product.id)
+      # 商品編集保存後その商品詳細ページへ遷移
+      redirect_to admin_product_path(@product), success: "編集に成功しました"
     else
-      render "new"
+      #バリデーションに引っ掛かる場合は新規登録画面へ遷移
+      redirect_to edit_admin_product_path, denger: "編集に失敗しました"
     end
   end
 
