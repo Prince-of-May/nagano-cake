@@ -2,7 +2,6 @@ class Admin::CustomersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    # 論理削除とkaminari,未作成
     @customers = Customer.page(params[:page]).per(2)
   end
 
@@ -17,8 +16,11 @@ class Admin::CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(params[:id])
-    @customer.update(customer_params)
-    redirect_to admin_customer_path(@customer.id)
+    if @customer.update(customer_params)
+      redirect_to admin_customer_path(@customer.id)
+    else
+      render :edit
+    end
   end
   
   private
