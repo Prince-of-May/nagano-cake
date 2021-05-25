@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'searches/search'
+  end
   root to: 'public/homes#top'
   get '/admin' => 'admin/homes#top'
   get '/about' => 'public/homes#about'
 
   #adminの設定
- devise_for :admin, controllers: {
-  sessions: 'admin/sessions'
-}
+   devise_for :admin, controllers: {
+    sessions: 'admin/sessions'
+  }
   #customerの設定
   devise_for :customers, controllers: {
     sessions: 'public/sessions',

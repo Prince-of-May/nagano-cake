@@ -29,7 +29,7 @@ class Public::CustomersController < ApplicationController
   private
   #params.require(:キー(モデル名)).permit(:カラム名１,：カラム名２,・・・)
   def customer_params
-    params.require(:customer).permit(:family_name, :first_name, :family_name_rubi, :first_name_rubi, :email, :postal_code, :address, :phone_number)
+    params.require(:customer).permit(:family_name, :first_name, :family_name_rubi, :first_name_rubi, :email, :postal_code, :address, :phone_number, :is_deleted)
   end
 
 
