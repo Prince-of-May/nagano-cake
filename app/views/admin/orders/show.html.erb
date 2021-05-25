@@ -32,7 +32,7 @@
       <td><%= ordering_product.price.to_i * ordering_product.amount.to_i %></td>
       <% @sum += (ordering_product.price.to_i * ordering_product.amount.to_i) %>
       <td>
-        <%= form_with model: ordering_product, url: admin_order_path, local:true do |f| %>
+        <%= form_with model: ordering_product, url: admin_ordering_product_path, local:true do |f| %>
         <%= f.select :making_status, [["着手不可"],['製作待ち'], ['製作中'],['製作完了']], prompt: "着手不可"  %>
         <%= f.submit "更新" ,class: "btn btn-primary" %>
         <% end %>
