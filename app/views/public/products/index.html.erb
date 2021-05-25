@@ -2,7 +2,11 @@
   <tr>
     <th><h2>商品一覧</h2></th>
     <th><p>(全<%= @products.count %>件)</p></th>
-    <th><p>ジャンル検索(仮)</p></th>
+    <%= form_with(scope: :search, url: public_genres_path, method: :get, local: true) do |f| %>
+    <th><%= f.select :genre_id, @genres.collect { |genre| [ genre.name ] }, include_blank: "ジャンルを選択して下さい" %></th>
+    <th><%= f.submit('検索') %></th>
+    <% end %>
+
   </tr>
 </table>
 <table>

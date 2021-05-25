@@ -17,7 +17,12 @@
           <tr>
             <td><%= order.customer.family_name %><%= order.customer.first_name %></td>
             <td><%= order.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-            <td><%#= order.ordering_product.amount %></td>
+             <% @ordering_amount = 0 %>
+            <td><% order.ordering_products.each do |ordering_product| %>
+             <% @ordering_amount += ordering_product.amount %>
+             <% end %>
+             <%= @ordering_amount %>
+            </td>
             <td><%= order.status %></td>
           </tr>
             <td><%= link_to "注文詳細", admin_order_path(order), class:"btn btn-primary" %></td>

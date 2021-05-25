@@ -33,9 +33,11 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
-    p @order
     @order.save
-    
+    current_customer.cart_items.each do |cart_item|
+      OrderingProduct.create!(order_id: @order.id, product_id: cart_item.product_id, amount: cart_item.amount, price: @order.total_payment)
+    end
+    current_customer.cart_items.destroy_all
     redirect_to public_orders_complete_path
   end
 
