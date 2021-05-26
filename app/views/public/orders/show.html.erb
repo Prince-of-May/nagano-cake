@@ -27,6 +27,6 @@
     <h4>個数</h4>
     <%= ordering_product.amount %>
     <h4>小計</h4>
-    <% @sum = (ordering_product.product.price * ordering_product.amount) %>
+    <% @sum = (ordering_product.price * ordering_product.amount) %>
     <%= @sum %>
 <% end %>
