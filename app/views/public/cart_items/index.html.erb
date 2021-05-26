@@ -14,7 +14,7 @@
           <%= cart_item.product.name %>
         </th>
         <th>
-          <%= tax_price(cart_item.product.price) %>
+          <%= tax_price(cart_item.product.price).to_s(:delimited) %>
         </th>
         <%= form_with model:cart_item, url:public_cart_item_path(cart_item.id), method: :patch, local:true do |f| %>
         <th>
@@ -23,7 +23,7 @@
         </th>
         <% end %>
         <th>
-          <%= sub_price(cart_item) %>
+          <%= sub_price(cart_item).to_s(:delimited) %>
         </th>
         <th>
           <%= link_to "削除する", public_cart_item_path(cart_item), method: :delete %>
@@ -34,7 +34,7 @@
 <table>
   <tr>
     <th><h4>合計金額</h4></th>
-    <th><h5><%= total_price(@cart_items) %></h5></th>
+    <th><h5><%= total_price(@cart_items).to_s(:delimited) %></h5></th>
   </tr>
 </table>
 <%= link_to '情報入力画面に進む', new_public_order_path %>

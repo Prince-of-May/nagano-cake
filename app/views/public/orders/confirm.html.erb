@@ -14,13 +14,13 @@
             <%= cart_item.product.name %>
             </th>
             <th>
-            <%= tax_price(cart_item.product.price) %>
+            <%= tax_price(cart_item.product.price).to_s(:delimited) %>
             </th>
             <th>
             <%= cart_item.amount %>
             </th>
             <th>
-            <%= sub_price(cart_item) %>
+            <%= sub_price(cart_item).to_s(:delimited) %>
             </th>
         </tr>
         <% end %>
@@ -33,8 +33,8 @@
         </tr>
         <tr>
           <th><%= @delivery_charge %></th>
-          <th><%= total_price(@cart_items) %></th>
-          <th><%= @delivery_charge + total_price(@cart_items) %></th>
+          <th><%= total_price(@cart_items).to_s(:delimited) %></th>
+          <th><%= (@delivery_charge + total_price(@cart_items)).to_s(:delimited) %></th>
           <% @sum = @delivery_charge + total_price(@cart_items) %>
         </tr>
     </table>

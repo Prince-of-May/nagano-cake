@@ -1,6 +1,6 @@
 <table>
   <tr>
-    <th><h3>商品一覧</h3></th>
+    <th><h2>商品一覧</h2></th>
     <th><p>(全<%= @products.count %>件)</p></th>
     <% @genres.each do |genre| %>
       <tr>
@@ -16,7 +16,7 @@
     <% @products.each do |product| %>
     <%= attachment_image_tag product, :image, :fill, 150, 150 %>
     <h5><%= link_to product.name, public_product_path(product.id) %></h5>
-    <h5>¥<%= product.price %></h5>
+    <h5>¥<%= product.price.to_s(:delimited) %></h5>
     <% end %>
   </th>
 </table>
