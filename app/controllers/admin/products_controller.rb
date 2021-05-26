@@ -17,7 +17,7 @@ class Admin::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    #p @product
+    p @product
     if @product.save
       #商品の新規登録成功後その商品の詳細ページへ遷移
       redirect_to admin_product_path(@product), success: "登録に成功しました"
