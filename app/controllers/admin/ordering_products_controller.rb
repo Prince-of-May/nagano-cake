@@ -6,12 +6,6 @@ class Admin::OrderingProductsController < ApplicationController
     @ordering_product.update(ordering_product_params)
     redirect_to admin_order_path(@order.id)
 
-    #if @ordering_prod.status == "入金確"
-      #@ordering_product.order.update(making_status: "製作中")
-      #redirect_to admin_order_path(@ordering_product.id)
-    #else
-
-    #end
   end
 
   private
