@@ -12,21 +12,21 @@
 
 <h4>請求情報</h4>
 <h4>商品合計</h4>
-<%= @order.total_payment %>
+<%= @order.total_payment .to_s(:delimited)%>
 <h4>配送料</h4>
 <%= @delivery_charge %>
 <h4>ご請求額</h4>
-<%= @order.total_payment + @delivery_charge %>
+<%= (@order.total_payment + @delivery_charge).to_s(:delimited) %>
 
 <h4>注文内容</h4>
 <% @ordering_products.each do |ordering_product| %>
     <h4>商品</h4>
     <%= ordering_product.product.name %>
     <h4>単価（税込）</h4>
-    <%= ordering_product.product.price %>
+    <%= ordering_product.product.price.to_s(:delimited) %>
     <h4>個数</h4>
     <%= ordering_product.amount %>
     <h4>小計</h4>
-    <% @sum = (ordering_product.price * ordering_product.amount) %>
-    <%= @sum %>
+    <% @sum = (ordering_product.product.price * ordering_product.amount) %>
+    <%= @sum.to_s(:delimited) %>
 <% end %>
