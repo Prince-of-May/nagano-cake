@@ -1,0 +1,14 @@
+<h2><%= @genres.name %>一覧</h2>
+<p>(全<%= @data.count %>件)</p>
+<% if @data.empty? %>
+  <h2>該当する商品はありません</h2>
+<% end %>
+  <% @data.each do |data| %>
+    <div>
+      <%= attachment_image_tag data, :image, size: "190x150" %><br>
+      <%= link_to public_product_path(data.id) do %>
+      <p><%= data.name %></p><br>
+       <% end %>
+      <p>￥<%= data.price %></p>
+    </div>
+  <% end %>
