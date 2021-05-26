@@ -2,6 +2,7 @@ class Public::ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @product = Product.page(params[:page]).per(10)
     @genres = Genre.all
   end
 
@@ -10,5 +11,5 @@ class Public::ProductsController < ApplicationController
     @cart_item = CartItem.new
   end
 
- 
+
 end
