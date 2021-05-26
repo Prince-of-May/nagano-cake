@@ -1,9 +1,10 @@
 class Public::HomesController < ApplicationController
 
   def top
-    @products = Product.all.order("id DESC")
+    @products = Product.order("id DESC").page(params[:page]).per(4)
   end
 
   def about
   end
 end
+
