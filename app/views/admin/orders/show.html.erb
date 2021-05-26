@@ -27,9 +27,9 @@
   <tbody>
     <tr>
       <td><%= ordering_product.product.name %></td>
-      <td><%= ordering_product.product.price %></td>
+      <td><%= ordering_product.product.price.to_s(:delimited) %></td>
       <td><%= ordering_product.amount %></td>
-      <td><%= ordering_product.product.price.to_i * ordering_product.amount.to_i %></td>
+      <td><%= (ordering_product.product.price.to_i * ordering_product.amount.to_i).to_s(:delimited) %></td>
       <% @sum += (ordering_product.product.price.to_i * ordering_product.amount.to_i) %>
       <td>
         <%= form_with model: ordering_product, url: admin_ordering_product_path(ordering_product.id), local:true do |f| %>
@@ -46,15 +46,15 @@
 
   <tr>
     <th>商品合計</th>
-    <td><%= @sum %>円</td>
+    <td><%= @sum.to_s(:delimited) %>円</td>
   </tr>
   <tr>
     <th>送料</th>
-    <td><%= @order.shipping_cost %>円</td>
+    <td><%= @order.shipping_cost.to_s(:delimited) %>円</td>
   </tr>
   <tr>
     <th>請求金額合計</th>
-  　<td><%= @sum + @order.shipping_cost %>円</td>
+  　<td><%= (@sum + @order.shipping_cost).to_s(:delimited) %>円</td>
   </tr>
 
 </table>
