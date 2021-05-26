@@ -5,7 +5,6 @@ class Admin::OrderingProductsController < ApplicationController
     @order = @ordering_product.order
     @ordering_product.update(ordering_product_params)
     redirect_to admin_order_path(@order.id)
-
   end
 
   private
