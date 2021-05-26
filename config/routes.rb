@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'search/search'
   namespace :admin do
     get 'searches/search'
   end
@@ -46,5 +47,7 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
 
   end
+
+    get '/search' => 'search#search'
 
 end
