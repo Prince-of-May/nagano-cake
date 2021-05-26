@@ -1,1 +1,11 @@
 <h1>toppublic</h1>
+
+<table>
+  <th>
+    <% @products.each do |product| %>
+    <%= attachment_image_tag product, :image, :fill, 150, 150 %>
+    <h5><%= link_to product.name, public_product_path(product.id) %></h5>
+    <h5>¥<%= product.price.to_s(:delimited) %></h5>
+    <% end %>
+  </th>
+</table>
