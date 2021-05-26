@@ -21,7 +21,7 @@
         </tr>
         <tr class="d-flex">
            <th class="col-3">税抜価格</th>
-           <td class="col-3"><%= @product.price %></td>
+           <td class="col-3"><%= @product.price.to_s(:delimited) %></td>
         </tr>
         <tr class="d-flex">
            <th class="col-3">販売ステータス</th>
