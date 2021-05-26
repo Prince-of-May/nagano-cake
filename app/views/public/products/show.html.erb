@@ -1,6 +1,17 @@
-<%= attachment_image_tag @product, :image, :fill, 150, 100 %>
-  <h3><%= @product.name %></h3>
-  <h5><%= @product.description %></h5>
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <div class="text-left mt-5">
+        <%= attachment_image_tag @product, :image, :fill, 300, 250 %>
+      </div>
+      </div>
+      <div class="col-7">
+      <div class="my-5">
+        <h2><%= @product.name %></h2>
+      </div>
+      <div class="mb-5">
+        <h5><%= @product.description %></h5>
+      </div>
   <h3>¥ <%= tax_price(@product.price).to_s(:delimited) %>(税込)</h3>
 
   <p>商品個数</p>
@@ -11,5 +22,8 @@
   <%#= f.select :保存先のカラム名, [["選択肢", "実際にDBに保存させる内容"]["選択肢２","実際にDBに保存させる内容"]], include_blank: "選択して下さい" %>
   <%= f.submit 'カートに入れる', class:"btn btn-success" %>
   <% end %>
-
+  </div>
+  </div>
+  </div>
+</div>
 

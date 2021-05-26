@@ -15,18 +15,43 @@
  */
 @import "bootstrap";
 
+header{
+  background-color: #336633;
+  background-position: center center;
+}
+
+footer{
+  width: 100%;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+}
+
 .size {
+  font-family: 'Hannotate TC',sans-serif;
+  margin-left: 35px;
   color:#FFFFFF;
-  font-size:21px;
+  font-size:27px;
+
 }
 .footer_text{
   color:#FFFFFF;
   font-size:15px;
 }
 
-.back_img {
-  background-image: url(img/L12303981-1024x683.jpeg);
-  background-position: center center;
-  background-attachment: fixed;
+
+body {
   
+  font-family: 'Hannotate TC',sans-serif;
+  font-size:25px;
+
+  background-image: url(img/pexels-photo-1303092);
+  background-position: center center;
+  background-size: contain;
+  // background-repeat: round;
+  // background-attachment: fixed;
+  min-height: 100vh;
 }
+.fonttext{
+  font-family: 'Hannotate TC',sans-serif;
+  font-size:25px;
+  color:#000000;
