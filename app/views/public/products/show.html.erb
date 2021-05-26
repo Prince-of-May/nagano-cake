@@ -6,7 +6,7 @@
   <p>商品個数</p>
 
   <%= form_with model:@cart_item, url:public_cart_items_path, local:true do |f| %>
-  <%= f.select :amount, [1,2,3,4,5,6,7,8,9,10], include_blank: "選択して下さい" %>
+  <%= f.select :amount, [1,2,3,4,5,6,7,8,9,10], include_blank: "個数選択" %>
   <%= f.hidden_field :product_id, :value => @product.id %>
   <%#= f.select :保存先のカラム名, [["選択肢", "実際にDBに保存させる内容"]["選択肢２","実際にDBに保存させる内容"]], include_blank: "選択して下さい" %>
   <%= f.submit 'カートに入れる', class:"btn btn-success" %>

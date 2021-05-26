@@ -46,8 +46,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    @orders = current_customer.orders
+    @order = current_customer.orders.find(params[:id])
     @delivery_charge = 800
+    @ordering_products = OrderingProduct.where(order_id: @order.id)
   end
     #@orders = Order.where(:)
 

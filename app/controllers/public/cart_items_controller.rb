@@ -10,11 +10,11 @@ class Public::CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
     # @cart_item = current_customer.cart_items.new(cart_item_params) で9,10行目をまとめて一つにできる。
-    if customer_signed_in?
-    @cart_item.save
+    if @cart_item.save
     redirect_to public_cart_items_path
     else
-    redirect_to new_customer_session_path
+    redirect_to public_product_path(params[:cart_item][:product_id])
+    flash[:notice] = "個数を選択してください！！"
     end
   end
 
