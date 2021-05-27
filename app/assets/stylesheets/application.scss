@@ -62,7 +62,7 @@ body {
   font-size:25px;
   color:#000000;
 
-}git
+}
 
 
 .back_img {
@@ -80,4 +80,10 @@ body {
 }
 .push {
   height: 200px;/*フッターと同じ高さに指定*/
+}
+
+.btn--orange,
+a.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
 }

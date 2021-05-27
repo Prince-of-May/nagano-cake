@@ -1,15 +1,30 @@
-<h4>マイページ</h4>
-<h4>登録情報</h4>
-<%= link_to "編集する", edit_public_customer_path(@customer) %><!--edit_public_customer_pathだけだと誰の編集画面なのかわからない。そのためインスタンスに格納していたcurrent_customerを宣言させる-->
-<%= current_customer.family_name %>
-<%= current_customer.first_name %>
-<%= current_customer.family_name_rubi %>
-<%= current_customer.first_name_rubi %>
-<%= current_customer.postal_code %>
-<%= current_customer.address %>
-<%= current_customer.phone_number %>
-<%= current_customer.email %>
-<h4>配送先</h4>
-<%= link_to "一覧を見る", public_addresses_path %>
-<h4>注文履歴</h4>
-<%= link_to "一覧を見る", public_orders_path %>
+<b><h1>マイページ</h1></b>
+<tr>
+  <th>登録情報</th><td><%= link_to "編集する", edit_public_customer_path(@customer), class:"btn btn-success" %><!--edit_public_customer_pathだけだと誰の編集画面なのかわからない。そのためインスタンスに格納していたcurrent_customerを宣言させる--></td>
+</tr>
+<table>
+  <tr>
+    <th>氏名</th><td><%= current_customer.family_name %> <%= current_customer.first_name %></td>
+  </tr>
+  <tr>
+    <th>カナ</th><td><%= current_customer.family_name_rubi %> <%= current_customer.first_name_rubi %></td>
+  </tr>
+  <tr>
+    <th>郵便番号</th><td><%= current_customer.postal_code %></td>
+  </tr>
+  <tr>
+    <th>住所</th><td><%= current_customer.address %></td>
+  </tr>
+  <tr>
+    <th>電話番号</th><td><%= current_customer.phone_number %></td>
+  </tr>
+  <tr>
+    <th>メールアドレス</th><td><%= current_customer.email %></td>
+  </tr>
+</table>
+<tr>
+  <th>配送先</th><td><%= link_to "一覧を見る", public_addresses_path, class:"btn btn-primary" %></td>
+</tr>
+<tr>
+  <th>注文履歴</th><td><%= link_to "一覧を見る", public_orders_path, class:"btn btn-primary" %></td>
+</tr>
