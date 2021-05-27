@@ -9,6 +9,6 @@
       <%= link_to public_product_path(data.id) do %>
       <p><%= data.name %></p><br>
        <% end %>
-      <p>￥<%= data.price %></p>
+      <p>￥<%= data.price.to_s(:delimited) %></p>
     </div>
   <% end %>
