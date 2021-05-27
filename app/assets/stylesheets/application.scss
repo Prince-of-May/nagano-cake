@@ -41,7 +41,7 @@ footer{
 
 
 body {
- background-image: url(img/pexels-photo-1303092);
+  background-image: url(img/pexels-photo-1303092);
   background-position: center center;
   background-size: cover;
 
@@ -62,7 +62,7 @@ body {
   font-size:25px;
   color:#000000;
 
-}git
+}
 
 
 .back_img {
@@ -70,8 +70,6 @@ body {
   background-position: center center;
   background-size: cover;
   width: 700px;
-  // background-repeat: round;
-  // background-attachment: fixed;
 }
 
 .wrapper{
@@ -80,4 +78,10 @@ body {
 }
 .push {
   height: 200px;/*フッターと同じ高さに指定*/
+}
+
+.btn--orange,
+a.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
 }

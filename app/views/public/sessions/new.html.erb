@@ -1,39 +1,44 @@
 <div class="container-fluid">
-
-<h1>ログイン</h1>
-
+  <div class="mt-5 text-center">
   <div class="row">
-<h5>会員の方はこちらからログイン</h5>
-  </div>
-  <div class="row">
-    <div class='mx-auto'>
-
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-      <table>
-      <tr>
-        <div class="field">
-         <th><h5>メールアドレス</h5></th>
-         <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
-        </div>
-      </tr>
-      <tr>
-        <div class="field">
-          <th><h5>パスワード</h5></th>
-          <th><%= f.password_field :password, autocomplete: "current-password" %></th>
-        </div>
-      </tr>
-      </table>
-        <div class="actions">
-          <%= f.submit "ログイン", class:"btn btn-primary" %>
-        </div>
-        <% end %>
+    <div class="col-12 text-center">
+    <h1>ログイン</h1>
+    <h5>会員の方はこちらからログイン</h5>
     </div>
   </div>
-
-<h5>会員登録がお済みでない方<br>
-<%= link_to "こちら ", new_registration_path(resource_name) %>から新規登録を行ってください。
-</h5>
-
-</div>
+  </div>
+  <div class="row">
+    <div class="col-5 mx-auto">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <table>
+          <tr>
+            <th><h5>メールアドレス</h5></th>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          </tr>
+        <div class="mt-5">
+          <tr>
+            <th><h5>パスワード</h5></th>
+            <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+          </tr>
+        </div>
+      </table>
+    </div>
+  </div>
+  <div class="mt-2">
+  <div class="row">
+    <div class="col-1 mx-auto">
+    <%= f.submit "ログイン", class:"btn btn-primary" %>
+    </div>
+  </div>
+  </div>
+    <% end %>
+  <div class="mt-5 text-center">
+    <div class="row">
+      <div class="col-5 mx-auto">
+      <h5>会員登録がお済みでない方<br>
+      <%= link_to "こちら ", new_registration_path(resource_name) %>から新規登録を行ってください。
+      </h5>
+      </div>
+    </div>
+  </div>
 </div>
