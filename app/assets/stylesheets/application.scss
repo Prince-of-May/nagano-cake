@@ -22,7 +22,7 @@ header{
 
 footer{
   width: 100%;
-  position: absolute;/*←絶対位置*/
+  // position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
   margin-bottom: -200px;
 }
@@ -41,13 +41,17 @@ footer{
 
 
 body {
+ background-image: url(img/pexels-photo-1303092);
+  background-position: center center;
+  background-size: cover;
 
+}
+
+ .main{
   font-family: 'Hannotate TC',sans-serif;
   font-size:25px;
 
-  background-image: url(img/pexels-photo-1303092);
-  background-position: center center;
-  background-size: cover;
+
   // background-repeat: round;
   // background-attachment: fixed;
   min-height: 100vh;
@@ -57,13 +61,15 @@ body {
   font-family: 'Hannotate TC',sans-serif;
   font-size:25px;
   color:#000000;
-}
+
+}git
 
 
 .back_img {
   background-image : url(img/L12303981-1024x683.jpeg);
   background-position: center center;
   background-size: cover;
+  width: 700px;
   // background-repeat: round;
   // background-attachment: fixed;
 }
