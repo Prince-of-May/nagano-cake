@@ -2,18 +2,18 @@
   <div class="text-center">
     <div class="row">
       <div class="col-5 mx-auto">
-        <h2>注文情報入力</h2>
+        <h2 class="marker_hoso">注文情報入力</h2>
         <%= form_with model:@order, url:public_orders_confirm_path, method: :get, local:true do |f| %>
         <div class="text-left">
-        <h3>▪️支払方法</h3>
+        <h3 class="marker_hoso">▪️支払方法</h3>
         </div>
         <h4><%= f.radio_button :payment_method, :クレジットカード, checked: "checked"%>クレジットカード</h4><br>
         <div class="mt-1">
         <h4><%= f.radio_button :payment_method, :銀行振込 %>銀行振込</h4>
         </div>
-        
+
         <div class="text-left">
-          <h3>▪️お届け先</h3>
+          <h3 class="marker_hoso">▪️お届け先</h3>
         </div>
           <h4><%= f.radio_button :address_kind, 1, checked: "checked"%>ご自身の住所</h4><br>
           <h5>〒<%= current_customer.postal_code %>　<%= current_customer.address %>　<%= current_customer.family_name %><%= current_customer.first_name %></h5><br>
