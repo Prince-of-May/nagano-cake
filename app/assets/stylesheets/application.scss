@@ -25,7 +25,7 @@ footer{
   height: 200px;
   position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
-  
+  margin-bottom: -200px;
 }
 
 .size {
@@ -42,7 +42,7 @@ footer{
 
 
 body {
-
+  
   font-family: 'Hannotate TC',sans-serif;
   font-size:25px;
 
@@ -58,15 +58,6 @@ body {
   font-size:25px;
   color:#000000;
 }
-
-
-.back_img {
-  background-image : url(img/L12303981-1024x683.jpeg);
-  background-position: center center;
-  background-size: contain;
-  background-repeat: round;
-  background-attachment: fixed;
-
 .wrapper{
   min-height: 100vh;/*①高さの最小値*/
   position: relative;/*②相対位置*/
