@@ -25,7 +25,7 @@ footer{
   height: 200px;
   position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
-  
+
 }
 
 .size {
@@ -53,6 +53,7 @@ body {
   // background-attachment: fixed;
   min-height: 100vh;
 }
+
 .fonttext{
   font-family: 'Hannotate TC',sans-serif;
   font-size:25px;
@@ -66,6 +67,7 @@ body {
   background-size: contain;
   background-repeat: round;
   background-attachment: fixed;
+}
 
 .wrapper{
   min-height: 100vh;/*①高さの最小値*/
