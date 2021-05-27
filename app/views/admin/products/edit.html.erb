@@ -1,39 +1,38 @@
-<!--<div class = "container">-->
-<h2>商品編集</h2>
-<div class = "row">
-<div class="my-5">
+<div class = "container">
+ <h2 class="my-5 text-center">商品編集</h2>
+  <div class = "row">
+    <div class="my-5">
     <%= form_with model: @product, url: admin_product_path(@product.id), method: :patch, local:true do |f| %>
-    <table class="table table-borderless">
+    <table class="table table-hover table-borderless">
       <tr class="d-flex">
-        <th class="col-6"><%= f.label :商品画像 %></th>
+        <th class="text-center col-6"><%= f.label :商品画像 %></th>
         <td class="col-6"><%= f.attachment_field :image, class: "form-control-file product_image" %></td>
         <td class="col-6"><%= attachment_image_tag @product, :image, :fill, 200, 200, fallback: 'no_image.jpg' %></td>
       </tr>
       <tr class="d-flex">
-        <th class="col-6"><%= f.label :商品名 %></th>
+        <th class="text-center col-6"><%= f.label :商品名 %></th>
         <td class="col-6"><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
       </tr>
       <tr class="d-flex">
-        <th class="col-6"><%= f.label :商品説明 %></th>
+        <th class="text-center col-6"><%= f.label :商品説明 %></th>
         <td class="col-6"><%= f.text_area :description, autofocus: true, autocomplete: "description" %></td>
       </tr>
       <tr class="d-flex">
-        <th class="col-6"><%= f.label :ジャンル %></th>
+        <th class="text-center col-6"><%= f.label :ジャンル %></th>
         <td class="col-6"><%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %></td>
       </tr>
       <tr class="d-flex">
-        <th class="col-6"><%= f.label :税抜価格 %></th>
+        <th class="text-center col-6"><%= f.label :税抜価格 %></th>
         <td class="col-6"><%= f.text_field :price, autofocus: true, autocomplete: "price" %>円</td>
       </tr>
       <tr class="d-flex">
-      　<th class="col-6"><%= f.label :販売ステータス %></th>
+      　<th class="text-center col-6"><%= f.label :販売ステータス %></th>
         <td class="col-6"><%= f.radio_button :is_active, :販売中 %>販売中
                           <%= f.radio_button :is_active, :販売停止中 %>販売停止中</h4>
-          <%#= f.select :is_active, [["販売中","false"], ["販売不可","true"]], include_blank: "--選択してください--" %>
       </tr>
       </table>
 
-       <div class="mx-auto" style="width: 200px;">
+       <div class="text-center">
         <%= f.submit "変更を保存" ,class: "btn btn-primary" %>
       </div>
 
