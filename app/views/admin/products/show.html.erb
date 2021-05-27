@@ -1,31 +1,33 @@
-<!--<div class="container">-->
+<div class="container">
 <h3>商品詳細</h3>
-<!--<div class="row">-->
-    <div class="col-3">
+<div class="row">
+  <div class="col-5">
+    <div class="text-left mt-5">
     <%= attachment_image_tag(@product, :image, :fill, 400, 300) %>
     </div>
+  </div>
 
-   <!--<div class="col-9">-->
+   <div class="col-7">
       <table class="table table-borderless">
         <tr class="d-flex">
-           <th class="col-3">商品名</th>
-           <td class="col-3"><%= @product.name %></td>
+           <th class="col-4">商品名</th>
+           <td class="col-4"><%= @product.name %></td>
         </tr>
         <tr class="d-flex">
-           <th class="col-3">商品説明</th>
-           <td class="col-3"><%= @product.description %></td>
+           <th class="col-4">商品説明</th>
+           <td class="col-4"><%= @product.description %></td>
         </tr>
         <tr class="d-flex">
-           <th class="col-3">ジャンル</th>
-           <td class="col-3"><%= @product.genre.name %></td>
+           <th class="col-4">ジャンル</th>
+           <td class="col-4"><%= @product.genre.name %></td>
         </tr>
         <tr class="d-flex">
-           <th class="col-3">税抜価格</th>
-           <td class="col-3"><%= @product.price %></td>
+           <th class="col-4">税抜価格</th>
+           <td class="col-4"><%= @product.price %></td>
         </tr>
         <tr class="d-flex">
-           <th class="col-3">販売ステータス</th>
-           <th class="col-3">
+           <th class="col-4">販売ステータス</th>
+           <th class="col-4">
               <% if @product.is_active == "販売中" %>
                 <p>販売中</p>
               <% else %>
@@ -37,6 +39,8 @@
     <div class="mx-auto" style="width: 200px;">
      <%= button_to '編集する',edit_admin_product_path(@product.id), method: :get ,class: "btn btn-primary " %>
     </div>
-
+</div>
+</div>
+</div>
 
 

@@ -1,23 +1,31 @@
-<h2>ジャンル追加・一覧</h2>
-
-<%= form_with model: @genre, url:admin_genres_path, local:true do |f| %>
-
-<%= f.label :ジャンル名 %>
-<%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-<%= f.submit '新規登録' %>
-
-
-<% end %>
-<table>
-    <thead>ジャンル</thead>
-    <tbody>
-        <% @genres.each do |genre| %>
-        
-        <tr>
-        <th><%= genre.name %></th><th><%= link_to '編集する', edit_admin_genre_path(genre.id) %></th>
-        </tr>
-        
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+        <h2 class="my-5">ジャンル追加・一覧</h2>
+        <div class="my-4">
+        <%= form_with model: @genre, url:admin_genres_path, local:true do |f| %>
+         <%= f.label :ジャンル名 %>
+         <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+         <%= f.submit '新規登録', class: "btn btn-primary"%>
         <% end %>
-    </tbody>
-</table>
- <%= paginate(@genres) %>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+        <table class=table>
+            <thead class="table-active">ジャンル</thead>
+            <tbody>
+                <% @genres.each do |genre| %>
+                
+                <tr>
+                <th><%= genre.name %></th><th><%= link_to '編集する', edit_admin_genre_path(genre.id), class: "btn btn-primary" %></th>
+                </tr>
+                
+                <% end %>
+            </tbody>
+        </table>
+         <%= paginate(@genres) %>
+    </div>
+  </div>
+</div> 
