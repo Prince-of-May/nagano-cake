@@ -5,7 +5,7 @@
 
       </div>
     </div>
-
+    
     <div class="row">
       <div class="col-12">
         <div class="text-center mt-3">
@@ -15,9 +15,10 @@
         </div>
 　　　</div>
 　　</div>
+　　
 　　<div class="row">
-          <% @products.each do |product| %>
-          <div class="col-3">
+      <% @products.each do |product| %>
+        <div class="col-3">
           <table class="table text-center ">
             <tr>
               <td><%= attachment_image_tag product, :image, :fill, 150, 150 %></td>
@@ -30,6 +31,6 @@
              </tr>
           </table>
         </div>
-             <% end %>
+      <% end %>
     </div>
-</div>
+  </div>
