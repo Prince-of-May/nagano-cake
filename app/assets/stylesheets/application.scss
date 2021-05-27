@@ -22,10 +22,9 @@ header{
 
 footer{
   width: 100%;
-  height: 200px;
   position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
-
+  margin-bottom: -200px;
 }
 
 .size {
@@ -53,20 +52,22 @@ body {
   // background-attachment: fixed;
   min-height: 100vh;
 }
+
 .fonttext{
   font-family: 'Hannotate TC',sans-serif;
   font-size:25px;
   color:#000000;
 
-}git 
+}git
 
 
 .back_img {
   background-image : url(img/L12303981-1024x683.jpeg);
   background-position: center center;
-  background-size: contain;
-  background-repeat: round;
-  background-attachment: fixed;
+  background-size: cover;
+  // background-repeat: round;
+  // background-attachment: fixed;
+}
 
 .wrapper{
   min-height: 100vh;/*①高さの最小値*/
