@@ -1,23 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-12 text-center">
-      <div class="col-4 back_img">
-
-      </div>
-
         <div class="main-visual">
           <div class="main-visual-content">
-            <div>
+            <div class="back_img">
               <p>NAGANO CAKE</p>
-            </div>
               <p class="text-white">ようこそ、ながのCAKEへ！</p>
               <p class="text-white">このサイトは、ケーキ販売のECサイトになります。</p>
               <p class="text-white">会員でない方も商品の閲覧はできますが、</p>
               <p class="text-white">購入には会員登録が必要になります。</p>
+            </div>
           </div>
-        </div>
-
-     <h1>toppublic</h1>
+      </div>
     </div>
   </div>
 
@@ -29,7 +23,7 @@
           <td><%= attachment_image_tag product, :image, :fill, 150, 150 %></td>
         </tr>
         <tr>
-          <td><h5><%= link_to product.name, public_product_path(product.id) %></h5></td>
+          <td><h5><%= link_to product.name, public_product_path(product.id), class: 'fonttext' %></h5></td>
         </tr>
         <tr>
           <td><h5>¥<%= product.price.to_s(:delimited) %></h5></td>
