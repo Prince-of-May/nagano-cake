@@ -1,27 +1,49 @@
-<h4>注文情報入力</h4>
-
-<%= form_with model:@order, url:public_orders_confirm_path, method: :get, local:true do |f| %>
-<h5>支払方法</h5>
-<%= f.radio_button :payment_method, :クレジットカード, checked: "checked"%>クレジットカード<br>
-<%= f.radio_button :payment_method, :銀行振込 %>銀行振込
-
-<h5>お届け先</h5>
-<%= f.radio_button :address_kind, 1, checked: "checked"%>ご自身の住所<br>
-<%= current_customer.postal_code %><%= current_customer.address %><%= current_customer.family_name %><%= current_customer.first_name %><br>
-
-<%= f.radio_button :address_kind, 2 %>登録済住所から選択<br>
-<%= f.select :address_id, current_customer.addresses.collect { |address| [ address.postal_code + address.address + address.name, address.id ] } %><br>
-
-<%= f.radio_button :address_kind, 3 %>新しいお届け先<br>
-<h6>郵便番号(ハイフンなし)
-<%= f.text_field :postal_code, placeholder: "000000" %>
-</h6><br>
-<h6>住所
-<%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0" %>
-</h6><br>
-<h6>宛名
-<%= f.text_field :name, placeholder: "令和道子" %>
-<br></h6>
-
-<%= f.submit '確認画面へ進む', class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <div class="text-center">
+    <div class="row">
+      <div class="col-5 mx-auto">
+        <h2>注文情報入力</h2>
+        <%= form_with model:@order, url:public_orders_confirm_path, method: :get, local:true do |f| %>
+        <div class="text-left">
+        <h3>▪️支払方法</h3>
+        </div>
+        <h4><%= f.radio_button :payment_method, :クレジットカード, checked: "checked"%>クレジットカード</h4><br>
+        <div class="mt-1">
+        <h4><%= f.radio_button :payment_method, :銀行振込 %>銀行振込</h4>
+        </div>
+        
+        <div class="text-left">
+          <h3>▪️お届け先</h3>
+        </div>
+          <h4><%= f.radio_button :address_kind, 1, checked: "checked"%>ご自身の住所</h4><br>
+          <h5>〒<%= current_customer.postal_code %>　<%= current_customer.address %>　<%= current_customer.family_name %><%= current_customer.first_name %></h5><br>
+          <h4><%= f.radio_button :address_kind, 2 %>登録済住所から選択</h4><br>
+          <%= f.select :address_id, current_customer.addresses.collect { |address| [ address.postal_code + address.address + address.name, address.id ] } %><br>
+        <div class="my-3">
+          <h4><%= f.radio_button :address_kind, 3 %>新しいお届け先</h4>
+        </div>
+        <table>
+          <tr>
+            <h5>郵便番号(ハイフンなし)
+          </tr>
+            <%= f.text_field :postal_code, placeholder: "000000" %>
+            </h5>
+          <tr>
+            <h5>住所
+          </tr>
+            <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0" %>
+            </h5>
+          <tr>
+            <h5>宛名
+          </tr>
+            <%= f.text_field :name, placeholder: "令和道子" %>
+            </h5>
+        </table>
+        <div class="my-3">
+        <%= f.submit '確認画面へ進む', class: "btn btn-primary" %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
