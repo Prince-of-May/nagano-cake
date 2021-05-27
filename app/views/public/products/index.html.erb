@@ -1,3 +1,11 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1>商品一覧 (全<%= @products.count %>件)</h1>
+        
+      </div>
+    </div>
 <table>
   <tr>
     <th><h2>商品一覧</h2></th>
@@ -20,5 +28,32 @@
     <% end %>
   </th>
 </table>
+<%= paginate(@product) %>
 
-
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center mt-3">
+        <% @genres.each do |genre| %>
+        <%= link_to genre.name, search_path('search[value]': genre.id, 'search[how]': "match"), class: 'fonttext', class:"btn btn-outline-dark" %>
+        <% end %>
+        </div>
+　　　</div>
+　　</div>
+　　<div class="row">
+          <% @products.each do |product| %>
+          <div class="col-3">
+          <table class="table text-center ">
+            <tr>
+              <td><%= attachment_image_tag product, :image, :fill, 150, 150 %></td>
+            </tr>
+            <tr>
+               <td><h5><%= link_to product.name, public_product_path(product.id), class: 'fonttext' %></h5></td>
+             </tr>
+             <tr>
+               <td><h5>¥<%= product.price.to_s(:delimited) %></h5></td>
+             </tr>
+          </table>
+        </div>
+             <% end %>
+    </div>
+</div>
