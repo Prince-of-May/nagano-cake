@@ -47,7 +47,7 @@ body {
 
   background-image: url(img/pexels-photo-1303092);
   background-position: center center;
-  background-size: contain;
+  background-size: cover;
   // background-repeat: round;
   // background-attachment: fixed;
   min-height: 100vh;
@@ -65,6 +65,7 @@ body {
   background-image : url(img/L12303981-1024x683.jpeg);
   background-position: center center;
   background-size: cover;
+  width: 700px;
   // background-repeat: round;
   // background-attachment: fixed;
 }
