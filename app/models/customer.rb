@@ -14,6 +14,7 @@ class Customer < ApplicationRecord
   validates :family_name_rubi, presence: true
   validates :first_name_rubi, presence: true
   validates :postal_code, presence: true
+  validates :address, presence: true
   validates :phone_number, presence: true
   validates :email, presence: true
   
