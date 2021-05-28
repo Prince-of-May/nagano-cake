@@ -1,17 +1,29 @@
-<% @orders.each do |order| %>
-    <h4>注文日</h4>
-    <%= order.created_at.strftime('%Y/%m/%d')%>
-    <h4>配送先</h4>
-    <%= order.address%><!--テーブル名.カラム名-->
-    <h4>注文商品</h4>
-    <% order.ordering_products.each do |ordering| %>
-        <%= ordering.product.name %><!--アソシエーションしているので注文商品テーブルを経由して商品テーブルの商品名を取ってくる。「左から順にER図をたどっていくイメージ」-->
-    <% end %>
-    <h4>支払金額</h4>
-    <%= order.total_payment.to_s(:delimited) %>
-    <h4>ステータス</h4>
-    <%= order.status%>
-    <h4>注文詳細</h4>
-    <%= link_to "表示する", public_order_path(order) %>
-
+<b><h1>注文履歴一覧</h1></b>
+<table class="table table-bordered">
+  <tr>
+      <th>注文日</th>
+      <th>配送先</th>
+      <th>注文商品</th>
+      <th>支払金額</th>
+      <th>ステータス</th>
+      <th>注文詳細</th>
+  </tr>
+  <% @orders.each do |order| %>
+  
+    <tr>
+      <td><%= order.created_at.strftime('%Y/%m/%d')%></td>
+      <td><h5><%= order.address%></h5></td>
+      <td>
+          <div style="word-break : break-all;">
+              <% order.ordering_products.each do |ordering| %>
+                <h5><%= ordering.product.name %></h5></br>
+              <% end %>
+          </div>
+      </td>
+      <td><%= order.total_payment.to_s(:delimited) %></td>
+      <td><%= order.status%></td>
+      <td><%= link_to "表示する", public_order_path(order),class:"btn btn-primary" %></td>
+    </tr>
+  
 <% end %>
+</table>
