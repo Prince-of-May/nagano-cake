@@ -1,6 +1,6 @@
 <b><h1>マイページ</h1></b>
 <tr>
-  <th>登録情報</th><td><%= link_to "編集する", edit_public_customer_path(@customer), class:"btn btn-success" %><!--edit_public_customer_pathだけだと誰の編集画面なのかわからない。そのためインスタンスに格納していたcurrent_customerを宣言させる--></td>
+  <th><b>登録情報</b></th><td><%= link_to "編集する", edit_public_customer_path(@customer), class:"btn btn-success" %><!--edit_public_customer_pathだけだと誰の編集画面なのかわからない。そのためインスタンスに格納していたcurrent_customerを宣言させる--></td>
 </tr>
 <table>
   <tr>
@@ -22,9 +22,11 @@
     <th>メールアドレス</th><td><%= current_customer.email %></td>
   </tr>
 </table>
-<tr>
-  <th>配送先</th><td><%= link_to "一覧を見る", public_addresses_path, class:"btn btn-primary" %></td>
-</tr>
-<tr>
-  <th>注文履歴</th><td><%= link_to "一覧を見る", public_orders_path, class:"btn btn-primary" %></td>
-</tr>
+<table>
+  <tr>
+    <th>配送先</th><td><%= link_to "一覧を見る", public_addresses_path, class:"btn btn-primary" %></td>
+  </tr>
+  <tr>
+    <th>注文履歴</th><td><%= link_to "一覧を見る", public_orders_path, class:"btn btn-primary" %></td>
+  </tr>
+</table>
